@@ -56,9 +56,11 @@ class GoodsList {
   summ() {
     // вычисление общей суммы элементов
     let sum = 0;
+     
     this.goods.forEach(({unitPrice}) => {
-      if(!isNaN (parseInt(unitPrice))) {
-        sum += parseInt(unitPrice);
+      let uPrice = parseInt(unitPrice); 
+      if(!isNaN (uPrice)) {
+        sum += uPrice;
         }
       else {
         console.log ("Error");
@@ -87,47 +89,47 @@ class BasketItem {
     this.unitPrice = unitPrice;
     this.shipping = shipping;
 
-}
-renderBascketItem() {
-  // формирование вставки на страницу корзины
-  return `<div class="shopping_product" style="margin-top: 26px;"> 
-  <div class="prod_detals" style="width: 403px;"> 
-      <img src=${this.titleImage} alt="prod_detals1">
-      <div class="prod__detals">
-          <a href="single_page.html"><h1>${this.title}</h1></a>
-          <p>Color:<x> ${this.color}</x></p>
-          <p>Size:<x> ${this.size}</x></p></div>            </div>
-  <div class="unit_price">$${this.unitPrice}</div>
-  <div class="quantity"><label>
-      <input  type="number" min="0" max="10" step="1" style="height: 30px; width: 54px;" >
-  </label></div>
-  <div class="shipping">${this.shipping}</div>
-  <div class="subtotal">$300</div>
- <div class="action"><i class="fas fa-times-circle"></i></div></div>  
-    `
-}
-}
-// класс для корзины
-class BascketList {
-  constructor() {
-      // параметр - объект, выбранные продукты
-    this.bascketGoods = []; 
   }
-  fetchBascketGoods() {
-    // получение выбранных на странице продуктов
-    this.bascketGoods = bascketGoods; 
+  renderBascketItem() {
+    // формирование вставки на страницу корзины
+    return `<div class="shopping_product" style="margin-top: 26px;"> 
+    <div class="prod_detals" style="width: 403px;"> 
+        <img src=${this.titleImage} alt="prod_detals1">
+        <div class="prod__detals">
+            <a href="single_page.html"><h1>${this.title}</h1></a>
+            <p>Color:<x> ${this.color}</x></p>
+            <p>Size:<x> ${this.size}</x></p></div>            </div>
+    <div class="unit_price">$${this.unitPrice}</div>
+    <div class="quantity"><label>
+        <input  type="number" min="0" max="10" step="1" style="height: 30px; width: 54px;" >
+    </label></div>
+    <div class="shipping">${this.shipping}</div>
+    <div class="subtotal">$300</div>
+  <div class="action"><i class="fas fa-times-circle"></i></div></div>  
+      `
   }
-  renderBascketList() {  
-    // вставка продуктов на страницу корзины
-    // let html = '';
-    // this.bascketGoods.forEach(({ titleImage, title, color, size, unitPrice, shipping }) => {
-    //   const bascketItem = new BasketItem(titleImage, title, color, size, unitPrice, shipping);
-    //   html += bascketItem.renderBascketItem();
-    // });
-    // document.querySelector('.shopping_productt').innerHTML = html;
   }
-  summBascket() {
-  //  вычисление общей суммы выбранных продуктов 
-  }
+  // класс для корзины
+  class BascketList {
+    constructor() {
+        // параметр - объект, выбранные продукты
+      this.bascketGoods = []; 
+    }
+    fetchBascketGoods() {
+      // получение выбранных на странице продуктов
+      this.bascketGoods = bascketGoods; 
+    }
+    renderBascketList() {  
+      // вставка продуктов на страницу корзины
+      // let html = '';
+      // this.bascketGoods.forEach(({ titleImage, title, color, size, unitPrice, shipping }) => {
+      //   const bascketItem = new BasketItem(titleImage, title, color, size, unitPrice, shipping);
+      //   html += bascketItem.renderBascketItem();
+      // });
+      // document.querySelector('.shopping_productt').innerHTML = html;
+    }
+    summBascket() {
+    //  вычисление общей суммы выбранных продуктов 
+    }
 }
 
