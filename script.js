@@ -1,17 +1,3 @@
-// const goods = [
-//     { titleImage: "img/catalog_items_1.png", title: 'Mango T-shirt1',   color: "Red", size: "XLL", unitPrice: "10",  shipping: "FREE"   },
-//     { titleImage: "img/catalog_items_2.png", title: 'Mango T-shirt2', color: "Black", size: "XL", unitPrice: "20",  shipping: "FREE"  },
-//     { titleImage: "img/catalog_items_3.png", title: 'Mango T-shirt3', color: "Red", size: "XLL", unitPrice: "30",  shipping: "FREE"   },
-//     { titleImage: "img/catalog_items_4.png", title: 'Mango T-shirt4', color: "Red", size: "XLL", unitPrice: "40",  shipping: "FREE"   },
-//     { titleImage: "img/catalog_items_5.png", title: 'Mango T-shirt5', color: "Black", size: "XL", unitPrice: "50",  shipping: "FREE"  },
-//     { titleImage: "img/catalog_items_6.png", title: 'Mango T-shirt6', color: "Red", size: "XLL", unitPrice: "60",  shipping: "FREE"   },
-//     { titleImage: "img/catalog_items_7.png", title: 'Mango T-shirt7', color: "Red", size: "XLL", unitPrice: "70",  shipping: "FREE"   },
-//     { titleImage: "img/catalog_items_8.png", title: 'Mango T-shirt8', color: "Black", size: "XL", unitPrice: "80",  shipping: "FREE"  },
-//     { titleImage: "img/catalog_items_9.png", title: 'Mango T-shirt9', color: "Red", size: "XLL", unitPrice: "90",  shipping: "FREE"   },
-    
-//   ];
-
-
 function makeGETRequest(url, callback) {
     var xhr;
   
@@ -128,20 +114,30 @@ class BasketItem {
   renderBascketItem() {
     // формирование вставки на страницу корзины
     let subtotal = this.quantity*this.unitPrice;
-    return `<div data-title = "${this.title}"><div class="shopping_product"  style="margin-top: 26px;"> 
-    <div class="prod_detals" style="width: 403px;"> 
-        <img src=${this.titleImage} alt="prod_detals1">
-        <div class="prod__detals">
-            <a href="single_page.html"><h1>${this.title}</h1></a>
-            <p>Color:<x> ${this.color}</x></p>
-            <p>Size:<x> ${this.size}</x></p></div>            </div>
-    <div class="unit_price">$${this.unitPrice}</div>
-    <div class="quantity"><label>
-        <input  type="number" min="0" max="10" step="1" value = ${this.quantity} style="height: 30px; width: 54px;" >
-    </label></div>
-    <div class="shipping">${this.shipping}</div>
-    <div class="subtotal">$${subtotal}</div>
-  <div class="action"><i class="fas fa-times-circle" data-title = "${this.title}"></i></div></div> </div>  
+    return `
+    <div data-title = "${this.title}">
+      <div class="shopping_product"  style="margin-top: 26px;"> 
+        <div class="prod_detals" style="width: 403px;"> 
+          <img src=${this.titleImage} alt="prod_detals1">
+          <div class="prod__detals">
+                  <a href="single_page.html">
+                  <h1>${this.title}</h1>
+                </a>
+                <p>Color:<x> ${this.color}</x></p>
+                <p>Size:<x> ${this.size}</x></p>
+          </div>
+        </div>
+        <div class="unit_price">$${this.unitPrice}</div>
+        <div class="quantity">
+          <label>
+          <input  type="number" min="0" max="10" step="1" value = ${this.quantity} style="height: 30px; width: 54px;" >
+          </label>
+        </div>
+        <div class="shipping">${this.shipping}</div>
+        <div class="subtotal">$${subtotal}</div>
+        <div class="action"><i class="fas fa-times-circle" data-title = "${this.title}"></i></div>
+      </div>
+    </div>  
       `
   }
   }
@@ -188,13 +184,10 @@ class BasketItem {
     renderBascketList() {  
       // вставка продуктов на страницу корзины
       let html1 = '';
-      // let html2 = '';
-      // let html3 = '';
       this.bascketGoods.contents.forEach(({ titleImage, title, color, size, unitPrice, shipping, quantity }) => {
       const basketItem = new BasketItem(titleImage, title, color, size, unitPrice, shipping, quantity);
       html1 += basketItem.renderBascketItem();
-      // html2 = this.bascketGoods.amount; // получение общей суммы корзины
-      // html3 = this.bascketGoods.countGoods; // получение общего кол-ва товаров
+      
       
     });
       document.querySelector('.shopping_productt').innerHTML = html1;
