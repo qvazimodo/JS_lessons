@@ -1,102 +1,24 @@
-function makeGETRequest(url, callback) {
-    var xhr;
+let apiGetBasket = '';
+
+function makeGETRequest (url) {
   
+
+  return new Promise (function(resolve, reject) {
+    var xhr;
     if (window.XMLHttpRequest) {
       xhr = new XMLHttpRequest();
     } else if (window.ActiveXObject) { 
       xhr = new ActiveXObject("Microsoft.XMLHTTP");
     }
-  
-    xhr.onreadystatechange = function () {
-      if (xhr.readyState === 4) {
-        callback(xhr.responseText);
-      }
-    }
-  
     xhr.open('GET', url, true);
-    xhr.send();
-  }
-
-
-
-// class GoodsItem {
-
-//   constructor(titleImage = "img/catalog_items_1.png", title  = "def", color = "def", size = "def", unitPrice = "def", shipping = "def") {
-//     this.titleImage = titleImage;
-//     this.title = title;
-//     this.color = color;
-//     this.size = size;
-//     this.unitPrice = unitPrice;
-//     this.shipping = shipping;
-
-// }
-// render() {
-//   return `
-//           <div class="like_items_list " data-color = ${this.color} data-size = ${this.size} data-shipping = ${this.shipping}     >
-//           <a href="#" class="like_items_link"><img class="items_img" src= ${this.titleImage}   ></a>
-//           <div class="like_items_content">
-//               <a href="#" class="like_items_name">${this.title}</a>
-//               <div class="like_price_stars"> <p class="like_items_price" style="margin-top: 17px; margin-left: 1px;">$${this.unitPrice}</p>
-//                   </div>
-//           </div>
-//           <a href="#" class="items_add"> <img src="img/cart_2.png" alt="" style="margin-right: 8px">Add to Cart</a>
-//           </div>
-//   `
-// }
-// }
-
-// class GoodsList {
-//   constructor() {
-//     this.goods = [];
-//   }
-//   fetchGoods(cb) {
-//     // // асинхронная логика, получение с бека
-//     // this.goods = goods;
-//     // получение каталога продуктов
-//     makeGETRequest('https://raw.githubusercontent.com/qvazimodo/API-internetShop/master/responses/catalogData.json', (goods) => {
-//       this.goods = JSON.parse(goods);
-//       console.log (this.goods);
-//       cb();
-//     })
-//   }
-//   render() {
-//     let html = '';
-//     this.goods.forEach(({ titleImage, title, color, size, unitPrice, shipping }) => {
-//       const goodItem = new GoodsItem(titleImage, title, color, size, unitPrice, shipping);
-//       html += goodItem.render();
-//     });
-//     document.querySelector('.content_product_flex').innerHTML = html;
-//   }
-//   summ() {
-//     // вычисление общей суммы элементов
-//     let sum = 0;
-     
-//     this.goods.forEach(({unitPrice}) => {
-//       let uPrice = parseInt(unitPrice); 
-//       if(!isNaN (uPrice)) {
-//         sum += uPrice;
-//         }
-//       else {
-//         console.log ("Error");
-//         sum = 0;
-//       }
-//     })
-//     console.log (sum);
-//   }
-// }
-
-// const list = new GoodsList();
-// list.fetchGoods(() => {
-//   list.render();
-// });
-
-// list.summ();
-
-
-
-
-
-
+    xhr.onload = function () {
+      if (xhr.status === 200) {
+          resolve(xhr.responseText);
+       } else reject({code: xhr.status, message: xhr.statusText});
+      }
+      xhr.send();
+  })
+}
 
 // класс для элемента корзины
 class BasketItem {
@@ -150,9 +72,14 @@ class BasketItem {
     }
     fetchBascketGoods(cb) {
       // получение списка корзины от сервера
-      makeGETRequest('https://raw.githubusercontent.com/qvazimodo/API-internetShop/master/responses/getBasket.json', (bascketGoods) => {
+      makeGETRequest(apiGetBasket)
+      .then((bascketGoods) => {
         this.bascketGoods = JSON.parse(bascketGoods);
         console.log (this.bascketGoods);
+        cb();
+      })
+      .catch((err)=>{
+        console.log(err, "AJAX request failed");
         cb();
       })
     }
