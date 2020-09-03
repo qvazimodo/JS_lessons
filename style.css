@@ -1451,6 +1451,10 @@ summary::after {
   flex-direction: column;
 }
 
+.hide {
+  display: none;
+}
+
 .like_items_content {
   margin-top: 18px;
   margin-left: 15px;
