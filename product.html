@@ -265,9 +265,10 @@
                             </label></p>
                         </div></form>
                         
-                        <input type="text" id="product_search" value="">
-                        <button class="search_button" type="button">Искать</button>
-                    
+                        <div class="product__search">
+                            <input type="text" id="product_search" v-model:value = "value" v-on:input = "searchValue"> 
+                            <!-- <button class="search_button" type="button" v-on:click = "searchValue">Искать</button> -->
+                            </div>   
                         </div></div>
                     <div class="product_content_products">
                         <div class="content_product_flex">
@@ -481,6 +482,6 @@
 </footer>
 
 
-
+<script src="vue.js"></script>
 <script src="product.js"></script>
 <!--</body>--></html>

@@ -1,4 +1,4 @@
-let apiGetBasket = '';
+let apiGetBasket = 'https://raw.githubusercontent.com/qvazimodo/API-internetShop/master/responses/getBasket.json';
 
 function makeGETRequest (url) {
   

@@ -108,26 +108,28 @@ const list = new GoodsList();
 list.fetchGoods(() => {
   list.render();
   list.summ();
+  
 });
 
-document.querySelector(".search_button").onclick = function() {
-    const value = document.querySelector('#product_search').value;
-    list.filterGoods(value);
+// document.querySelector(".search_button").onclick = function() {
+//     const value = document.querySelector('#product_search').value;
+//     list.filterGoods(value);
+//     }
+
+const prodSearch = new Vue ({
+    el: ".product__search",
+    data: {
+      value: ""
+    },
+
+    methods: {
+      searchValue: function (e) {
+        valueS = this.value;
+        list.filterGoods(valueS);
+      }
+     
     }
 
+})
 
-// поиск элементов при помощи реулярных выражений
-// еще вариант поиска
-// document.querySelector('#product_search').oninput = function() {
-//     let val = this.value
-//     let searchProducts = document.querySelectorAll('.like_items_list');
-//     if (val != '') {
-//         searchProducts.forEach(function (elem) {
-//             console.log(elem.dataset.title) ;
-//             if (elem.dataset.title.search(val) == -1) {
-//                 elem.classList.add('hide');
-//             } else  elem.classList.remove('hide');
-//         });                   
-//     }
-    
-// }
+
