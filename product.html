@@ -54,23 +54,31 @@
         <div class="cart"> <img class="header__cart" src="img/cart.png" alt="cart">
             <div class="cart_drop">
                 <div class="cart_drop_flex">
-                    <div class="product">
+                    <cart-product ></cart-product>
+
+                    <!-- <div class="product">
                         <div class="cart_prod_photo"><img src="img/cart_prod_photo1.png" alt=""></div>
                         <div class="cart_prod_info">
                             <h1>Rebox Zane</h1>
                             <div class="stars"><img src="img/stars.png" alt=""></div>
                             <h2>1 x $250</h2></div>
-                        <div class="cart_prod_cansel"><img src="img/cansel.png" alt=""></div></div>
+                        <div class="cart_prod_cansel"><img src="img/cansel.png" alt="">
+                        </div>
+                    </div>
                     <div class="product">
                         <div class="cart_prod_photo"><img src="img/cart_prod_photo2.png" alt=""></div>
                         <div class="cart_prod_info">
                             <h1>Rebox Zane</h1>
                             <div class="stars"><img src="img/stars.png" alt=""></div>
                             <h2>1 x $250</h2></div>
-                        <div class="cart_prod_cansel"><img src="img/cansel.png" alt=""></div></div>
+                        <div class="cart_prod_cansel"><img src="img/cansel.png" alt="">
+                        </div>
+                    </div> -->
+
                     <div class="total">
                         <h1>TOTAL</h1>
-                        <h1>$500.00</h1></div>
+                        <h1>$500.00</h1>
+                    </div>
                     <div class="cart_button">
                         <a href="#" class="checkout">Checkout</a>
                         <a href="#" class="gotocart">Go to cart</a>
@@ -215,7 +223,9 @@
                                 <p class="tranding_p">Lace </p>
                                 <p class="tranding_p">Floral <span> |&nbsp </span></p>
                                 <p class="tranding_p">Lace <span> |&nbsp </span></p>
-                                <p class="tranding_p">Bohemian </p></div></form>
+                                <p class="tranding_p">Bohemian </p>
+                                </div>
+                            </form>
                             <div  class="filter_size">
                                 <h1 class="size_h1">Size</h1>
                                 <div class="filter__size">
@@ -228,7 +238,8 @@
                                     <input id="XXL" type = "checkbox" name = "size_type7" value = "XXL" class="custom-checkbox"> <label for="XXL">XXL</label>
                                 </div>
                             </div>
-                            <form action="#" class="filter_price"><h1 class="price_h1">pRICE</h1>
+                            <form action="#" class="filter_price">
+                                <h1 class="price_h1">pRICE</h1>
                                 <div class="range-controls">
                                     <div class="scale">
                                         <div class="bar1"></div>
@@ -238,9 +249,11 @@
                                     <div class="range-toggle range-toggle-max"></div>
                                 </div>
                                 <div class="price_p">
-                                <p class="price">$52</p>
-                                <p class="price">$400</p></div>
-                            </form></div>
+                                    <p class="price">$52</p>
+                                    <p class="price">$400</p>
+                                </div>
+                            </form>
+                        </div>
                         <div class="filter_sort_bar">
 
                         <form action="#" class="filter_sort_name">
@@ -266,95 +279,15 @@
                         </div></form>
                         
                         <div class="product__search">
-                            <input type="text" id="product_search" v-model:value = "value" v-on:input = "searchValue"> 
+                            <product-search>
+
+                            </product-search>
+                            <!-- <input type="text" id="product_search" v-model:value = "value" v-on:input = "searchValue">  -->
                             <!-- <button class="search_button" type="button" v-on:click = "searchValue">Искать</button> -->
-                            </div>   
+                        </div>   
                         </div></div>
                     <div class="product_content_products">
-                        <div class="content_product_flex">
-                            <!-- <div class="like_items_list   ">
-                                <a href="#" class="like_items_link"><img class="items_img" src="img/catalog_items_1.png" alt="like_items_1" ></a>
-                                <div class="like_items_content">
-                                    <a href="#" class="like_items_name">Mango People T-shirt</a>
-                                    <div class="like_price_stars"> <p class="like_items_price" style="margin-top: 17px; margin-left: 1px;">$52.00</p>
-                                        </div>
-                                </div>
-                                <a href="#" class="items_add"> <img src="img/cart_2.png" alt="" style="margin-right: 8px">Add to Cart</a>
-                            </div>
-                            <div class="like_items_list  ">
-                                <a href="#" class="like_items_link"><img class="items_img" src="img/catalog_items_2.png" alt="like_items_1" ></a>
-                                <div class="like_items_content">
-                                    <a href="#" class="like_items_name">Mango People T-shirt</a>
-                                    <div class="like_price_stars"> <p class="like_items_price" style="margin-top: 17px; margin-left: 1px;">$52.00</p>
-                                    </div>
-                                </div>
-                                <a href="#" class="items_add"> <img src="img/cart_2.png" alt="" style="margin-right: 8px">Add to Cart</a>
-                            </div>
-                            <div class="like_items_list  ">
-                            <a href="#" class="like_items_link"><img class="items_img" src="img/catalog_items_3.png" alt="like_items_1" ></a>
-                            <div class="like_items_content">
-                                <a href="#" class="like_items_name">Mango People T-shirt</a>
-                                <div class="like_price_stars"> <p class="like_items_price" style="margin-top: 17px; margin-left: 1px;">$52.00</p>
-                                </div>
-                            </div>
-                            <a href="#" class="items_add"> <img src="img/cart_2.png" alt="" style="margin-right: 8px">Add to Cart</a>
-                        </div>
-                            <div class="like_items_list  ">
-                                <a href="#" class="like_items_link"><img class="items_img" src="img/catalog_items_4.png" alt="like_items_1" ></a>
-                                <div class="like_items_content">
-                                    <a href="#" class="like_items_name">Mango People T-shirt</a>
-                                    <div class="like_price_stars"> <p class="like_items_price" style="margin-top: 17px; margin-left: 1px;">$52.00</p>
-                                    </div>
-                                </div>
-                                <a href="#" class="items_add"> <img src="img/cart_2.png" alt="" style="margin-right: 8px">Add to Cart</a>
-                            </div>
-                            <div class="like_items_list  ">
-                                <a href="#" class="like_items_link"><img class="items_img" src="img/catalog_items_5.png" alt="like_items_1" ></a>
-                                <div class="like_items_content">
-                                    <a href="#" class="like_items_name">Mango People T-shirt</a>
-                                    <div class="like_price_stars"> <p class="like_items_price" style="margin-top: 17px; margin-left: 1px;">$52.00</p>
-                                    </div>
-                                </div>
-                                <a href="#" class="items_add"> <img src="img/cart_2.png" alt="" style="margin-right: 8px">Add to Cart</a>
-                            </div>
-                            <div class="like_items_list  ">
-                                <a href="#" class="like_items_link"><img class="items_img" src="img/catalog_items_6.png" alt="like_items_1" ></a>
-                                <div class="like_items_content">
-                                    <a href="#" class="like_items_name">Mango People T-shirt</a>
-                                    <div class="like_price_stars"> <p class="like_items_price" style="margin-top: 17px; margin-left: 1px;">$52.00</p>
-                                    </div>
-                                </div>
-                                <a href="#" class="items_add"> <img src="img/cart_2.png" alt="" style="margin-right: 8px">Add to Cart</a>
-                            </div>
-                            <div class="like_items_list  ">
-                                <a href="#" class="like_items_link"><img class="items_img" src="img/catalog_items_7.png" alt="like_items_1" ></a>
-                                <div class="like_items_content">
-                                    <a href="#" class="like_items_name">Mango People T-shirt</a>
-                                    <div class="like_price_stars"> <p class="like_items_price" style="margin-top: 17px; margin-left: 1px;">$52.00</p>
-                                    </div>
-                                </div>
-                                <a href="#" class="items_add"> <img src="img/cart_2.png" alt="" style="margin-right: 8px">Add to Cart</a>
-                            </div>
-                            <div class="like_items_list  ">
-                                <a href="#" class="like_items_link"><img class="items_img" src="img/catalog_items_8.png" alt="like_items_1" ></a>
-                                <div class="like_items_content">
-                                    <a href="#" class="like_items_name">Mango People T-shirt</a>
-                                    <div class="like_price_stars"> <p class="like_items_price" style="margin-top: 17px; margin-left: 1px;">$52.00</p>
-                                    </div>
-                                </div>
-                                <a href="#" class="items_add"> <img src="img/cart_2.png" alt="" style="margin-right: 8px">Add to Cart</a>
-                            </div>
-                            <div class="like_items_list  ">
-                                <a href="#" class="like_items_link"><img class="items_img" src="img/catalog_items_9.png" alt="like_items_1" ></a>
-                                <div class="like_items_content">
-                                    <a href="#" class="like_items_name">Mango People T-shirt</a>
-                                    <div class="like_price_stars"> <p class="like_items_price" style="margin-top: 17px; margin-left: 1px;">$52.00</p>
-                                    </div>
-                                </div>
-                                <a href="#" class="items_add"> <img src="img/cart_2.png" alt="" style="margin-right: 8px">Add to Cart</a>
-                            </div> -->
-
-                        </div>
+                        <div class="content_product_flex"></div>  
                     </div>
                     <div class="product_content_pagination">
 

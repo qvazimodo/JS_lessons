@@ -63,11 +63,12 @@ a {
   left: -40px;
   display: none;
   flex-direction: column;
-  height: 456px;
+  /* height: 456px; */
   width: 262px;
   position: absolute;
   background-image: url(img/cart_drop.png);
   background-color: white;
+  z-index: 99;
 }
 
 .cart_drop_flex {
@@ -76,10 +77,15 @@ a {
   margin-right: 15px;
 }
 
-.product {
+.cart-product {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.product {
+  /* display: flex;
+  justify-content: space-between;
+  align-items: center; */
   height: 85px;
   width: 230px;
   border-bottom: 1px solid rgba(237, 237, 237, 0.75);

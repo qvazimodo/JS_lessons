@@ -21,7 +21,7 @@ function makeGETRequest (url) {
 }
 
 
-
+// ------------------------------------------------класс формирования карточки товара на странице------
 class GoodsItem {
 
   constructor(titleImage = "img/catalog_items_1.png", title  = "def", color = "def", size = "def", unitPrice = "def", shipping = "def") {
@@ -43,12 +43,13 @@ render() {
                      <p class="like_items_price" style="margin-top: 17px; margin-left: 1px;">$${this.unitPrice}</p>
                 </div>
             </div>
-             <a href="#" class="items_add"> <img src="img/cart_2.png" alt="" style="margin-right: 8px">Add to Cart</a>
+             <a href="#" class="items_add" data-color = ${this.color} data-size = ${this.size} data-shipping = ${this.shipping} data-title = "${this.title}" data-price = ${this.unitPrice} > <img src="img/cart_2.png" alt="" style="margin-right: 8px">Add to Cart</a>
         </div>
         `
     }
 }
-
+// -----------------------------------------------------------------------------------------------------
+// -------------------------------------------------класс вызова, отрисовки товаров на странице---------
 class GoodsList {
   constructor() {
     this.goods = [];
@@ -101,6 +102,8 @@ class GoodsList {
     console.log (sum);
   }
 
+
+
   
 }
 
@@ -108,28 +111,52 @@ const list = new GoodsList();
 list.fetchGoods(() => {
   list.render();
   list.summ();
-  
+
 });
 
-// document.querySelector(".search_button").onclick = function() {
-//     const value = document.querySelector('#product_search').value;
-//     list.filterGoods(value);
-//     }
 
-const prodSearch = new Vue ({
-    el: ".product__search",
-    data: {
-      value: ""
-    },
-
-    methods: {
-      searchValue: function (e) {
-        valueS = this.value;
-        list.filterGoods(valueS);
-      }
-     
+// ----------------------------------------------------------------------------------------------------
+//  ------------------------------------ строка поиска на Vue------------------------------------------
+Vue.component("productSearch", {
+  template: `
+  <input
+    type="text"
+    id="product_search"
+    v-model:value = "value"
+    v-on:input = "searchValue"> 
+  `,
+  data: function() {
+    return {value: ""}
+  },
+  methods: {
+    searchValue: function (e) {
+      valueS = this.value;
+      list.filterGoods(valueS);
     }
+  }
+})
+
+new Vue ({
+    el: ".product__search",
+})
+//-------------------------------------------------------------------------------------------------------
+// ---------------------------------------формирование карточки товара в корзина на Vue------------------
+Vue.component ("cartProduct", {
+  template: `
+      <div class= "cart-product" ><div class="cart_prod_photo"><img src="img/cart_prod_photo1.png" alt=""></div>
+      <div class="cart_prod_info">
+          <h1>Rebox Zane</h1>
+          <div class="stars"><img src="img/stars.png" alt=""></div>
+          <h2>1 x $250</h2></div>
+      <div class="cart_prod_cansel"><img src="img/cansel.png" alt="">
+      </div> </div>
+  `,
 
 })
 
+new Vue ({
+  el: ".cart_drop_flex",
+})
+
+//-------------------------------------------------------------------------------------------------------------
 
