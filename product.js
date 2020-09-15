@@ -210,6 +210,7 @@ Vue.component ("contentProductFlex", {
       cart: [],
       data:{},
       
+      
 
     }
   },
