@@ -1,0 +1,74 @@
+[
+    {
+      "id_product": 1,
+      "title": "Mango A-shirt1",
+      "color": "Red",
+      "size": "XLL",
+      "unitPrice": 150,
+      "shipping": "FREE"
+    },
+    {
+      "id_product": 2,
+      "title": "Jango B-shirt2",
+      "color": "Black",
+      "size": "XL",
+      "unitPrice": 400 ,
+      "shipping": "FREE"
+    },
+    {
+      "id_product": 3,
+      "title": "Kango C-shirt3",
+      "color": "Blue",
+      "size": "XXL",
+      "unitPrice": 800,
+      "shipping": "FREE"
+    },
+    {
+      "id_product": 4,
+      "title": "Box T-shirt4",
+      "color": "White",
+      "size": "X",
+      "unitPrice": 1000,
+      "shipping": "FREE"
+    },
+    {
+      "id_product": 5,
+      "title": "Adidas shirt5",
+      "color": "White",
+      "size": "XX",
+      "unitPrice": 500,
+      "shipping": "FREE"
+    },
+    {
+      "id_product": 6,
+      "title": "Mango T-shirt6",
+      "color": "Red",
+      "size": "L",
+      "unitPrice": 700,
+      "shipping": "FREE"
+    },
+    {
+      "id_product": 7,
+      "title": "Cabal Q-shirt7",
+      "color": "Red",
+      "size": "XL",
+      "unitPrice": 250,
+      "shipping": "FREE"
+    },
+    {
+      "id_product": 8,
+      "title": "Mango T-shirt8",
+      "color": "Red",
+      "size": "XXL",
+      "unitPrice": 200,
+      "shipping": "FREE"
+    },
+    {
+      "id_product": 9,
+      "title": "Mango T-shirt9",
+      "color": "Green",
+      "size": "XL",
+      "unitPrice": 300,
+      "shipping": "FREE"
+    }
+  ]
