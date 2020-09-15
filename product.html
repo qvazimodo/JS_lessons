@@ -11,11 +11,11 @@
 </head>
 
 <!--<body>-->
-<div class= "app">
+
 <header class="header center">
     <div class="header__left">
         <a href="index.html" class="logo">
-            <img class="logo__img" src="img/18.png" alt="logo">BRAND</x>
+            <img class="logo__img" src="img/18.png" alt="logo">BRAN<x>D</x>
         </a>
         <form class="header__form" action="#">
             <details class="header__browse">
@@ -54,7 +54,7 @@
         <div class="cart"> <img class="header__cart" src="img/cart.png" alt="cart">
             <div class="cart_drop">
                 <div class="cart_drop_flex">
-                    <div><cart-product> </cart-product></div>
+                    <cart-product ></cart-product>
 
                     <!-- <div class="product">
                         <div class="cart_prod_photo"><img src="img/cart_prod_photo1.png" alt=""></div>
@@ -83,9 +83,7 @@
                         <a href="#" class="checkout">Checkout</a>
                         <a href="#" class="gotocart">Go to cart</a>
                     </div>
-                </div>
-            </div>
-        </div>
+                </div></div></div>
         <a href="#" class="button">My Account <img src="img/triangle.png" style="margin-left:8px " alt=""> </a>
     </div>
 </header>
@@ -281,14 +279,15 @@
                         </div></form>
                         
                         <div class="product__search">
-                            <product-search @search="query = $event"> </product-search>
+                            <product-search>
+
+                            </product-search>
                             <!-- <input type="text" id="product_search" v-model:value = "value" v-on:input = "searchValue">  -->
                             <!-- <button class="search_button" type="button" v-on:click = "searchValue">Искать</button> -->
                         </div>   
                         </div></div>
                     <div class="product_content_products">
-                        <!-- <div class="content_product_flex"> </div>   -->
-                        <content-product-flex :query = "query"> </content-product-flex>
+                        <div class="content_product_flex"></div>  
                     </div>
                     <div class="product_content_pagination">
 
@@ -364,7 +363,7 @@
             <div class="footer1 center">
                 <div class="footer__left">
                     <a href="" class="logo logo_f">
-                        <img class="logo__img" src="img/18.png" alt="logo">BRAND</x>
+                        <img class="logo__img" src="img/18.png" alt="logo">BRAN<x>D</x>
                     </a>
                     <div class="footer_brand"> <p>Objectively transition extensive data rather than cross functional solutions. Monotonectally syndicate multidisciplinary materials before go forward benefits. Intrinsicly syndicate an expanded array of processes and cross-unit partnerships. </p>
                         <p></p> Efficiently plagiarize 24/365 action items and focused infomediaries. Distinctively seize superior initiatives for wireless technologies. Dynamically optimize. Objectively strategize seamless relationships via resource sucking testing procedures. Proactively cultivate next-generation results for value-added methodologies. Dynamically plagiarize unique methodologies after performance based methodologies. Monotonectally empower stand-alone mindshare rather than ubiquitous opportunities. Dynamically orchestrate resource sucking scenarios after alternative synergy. Compellingly envisioneer corporate methods of empowerment before standards compliant technologies. Objectively facilitate progressive.</div></div>
@@ -414,7 +413,7 @@
             </a>
         </div> </div>
 </footer>
-</div>
+
 
 <script src="vue.js"></script>
 <script src="product.js"></script>

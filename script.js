@@ -36,7 +36,7 @@ class BasketItem {
   renderBascketItem() {
     // формирование вставки на страницу корзины
     let subtotal = this.quantity*this.unitPrice;
-    return  /* html */ `  
+    return `
     <div data-title = "${this.title}">
       <div class="shopping_product"  style="margin-top: 26px;"> 
         <div class="prod_detals" style="width: 403px;"> 
