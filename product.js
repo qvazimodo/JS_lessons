@@ -215,6 +215,7 @@ Vue.component ("contentProductFlex", {
     }
   },
 
+  
   methods: {
       addToCart(e) {
 
